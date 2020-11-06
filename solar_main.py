@@ -117,10 +117,11 @@ def main():
 
     root = tkinter.Tk()
     # космическое пространство отображается на холсте типа Canvas
-    space = tkinter.Canvas(root, width=window_width, height=window_height, bg="black")
+    space = tkinter.Canvas(root, width=window_width, height=window_height, bg="white")
     space.pack(side=tkinter.TOP)
     # нижняя панель с кнопками
     frame = tkinter.Frame(root)
+    label_a = tkinter.Label(master=frame, text="I'm in Frame A")
     frame.pack(side=tkinter.BOTTOM)
 
     start_button = tkinter.Button(frame, text="Start", command=start_execution, width=6)
