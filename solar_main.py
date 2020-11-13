@@ -93,30 +93,15 @@ def open_file_dialog():
             raise AssertionError()
 
 
-def print_graphics(f):
+def print_graphics(list1, list2, list3):
     root = Tk()
     canv = Canvas(root, width=1000, height=1000, bg="white")
     canv.create_line(500, 1000, 500, 0, width=2, arrow=LAST)
     canv.create_line(0, 500, 1000, 500, width=2, arrow=LAST)
-
-    First_x = -500;
-
-    for i in range(16000):
-        if (i % 800 == 0):
-            k = First_x + (1 / 16) * i
-            canv.create_line(k + 500, -3 + 500, k + 500, 3 + 500, width=0.5, fill='black')
-            canv.create_text(k + 515, -10 + 500, text=str(k), fill="purple", font=("Helvectica", "10"))
-            if (k != 0):
-                canv.create_line(-3 + 500, k + 500, 3 + 500, k + 500, width=0.5, fill='black')
-                canv.create_text(20 + 500, k + 500, text=str(k), fill="purple", font=("Helvectica", "10"))
-        try:
-            x = First_x + (1 / 16) * i
-            new_f = f.replace('x', str(x))
-            y = -eval(new_f) + 500
-            x += 500
-            canv.create_oval(x, y, x + 1, y + 1, fill='black')
-        except:
-            pass
+    for x in range(len(list1)):
+        canv.create_oval(x, list1[x], x + 1, list1[x] + 1, fill='black')
+        canv.create_oval(x, list2[x], x + 1, list2[x] + 1, fill='black')
+        canv.create_oval(x, list3[x], x + 1, list3[x] + 1, fill='black')
     canv.pack()
     root.mainloop()
 
@@ -181,4 +166,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    print_graphics('x')
+    print_graphics(stat_read(stats.txt))
