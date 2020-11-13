@@ -93,9 +93,22 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            print(out_file, "{0} {1} {2} {3} {4} {5} {6} {7}\n".format(obj.type.capitalize(), obj.R, obj.color, obj.m, obj.x, obj.y, obj.Vx, obj.Vy))
+            print(out_file, "{0} {1} {2} {3} {4} {5} {6} {7}\n".format(obj.type.capitalize(),
+                obj.R, obj.color, obj.m, obj.x, obj.y, obj.Vx, obj.Vy))
 
-# FIXME: хорошо бы ещё сделать функцию, сохранающую статистику в заданный файл...
+def statappend(stat_filename, planet, star, time):
+    '''Добавляет статистику в данный момент в конец файла статистики.
+    
+    Параметры:
+    
+    **stat_filename** - имя файла статистики
+    **planet** - планета, по которой ведётся статистика
+    **star** - звезда, по которой ведётся статистика
+    **time** - значение времени в текущий момент
+    '''
+    with open (stat_filename, 'a') as stat_file:
+        stat_file.write("{0} {1} {2}\n".format(str(time), str((planet.vx**2 + planet.vy**2)**0.5),
+            str(((star.x - planet.x)**2 + (star.y - planet.y)**2)**0.5)))
 
 if __name__ == "__main__":
     print("This module is not for direct call!")
