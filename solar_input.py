@@ -106,8 +106,8 @@ def statappend(stat_filename, planet, star, time):
     **star** - звезда, по которой ведётся статистика
     **time** - значение времени в текущий момент
     '''
-    with open (stat_filename, 'a') as stat_file:
-        stat_file.write("{0} {1} {2} \n".format(str(time), str((planet.vx**2 + planet.vy**2)**0.5),
+    with open(stat_filename, 'a') as stat_file:
+        stat_file.write("{0} {1} {2} \n".format(str(time), str((planet.Vx**2 + planet.Vy**2)**0.5),
             str(((star.x - planet.x)**2 + (star.y - planet.y)**2)**0.5)))
 
 def stat_read(stat_filename):

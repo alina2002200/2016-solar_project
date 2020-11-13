@@ -37,6 +37,7 @@ def execution():
     global displayed_time
     recalculate_space_objects_positions(space_objects, time_step.get())
     for body in space_objects:
+        statappend('stats.txt', space_objects[1], space_objects[0], physical_time)
         update_object_position(space, body)
     physical_time += time_step.get()
     displayed_time.set("%.1f" % physical_time + " seconds gone")
@@ -160,11 +161,11 @@ def main():
     displayed_time.set(str(physical_time) + " seconds gone")
     time_label = tkinter.Label(frame, textvariable=displayed_time, width=30)
     time_label.pack(side=tkinter.RIGHT)
-    statappend('stats.txt', planet, star, time)
     root.mainloop()
     print('Modelling finished!')
 
 
 if __name__ == "__main__":
     main()
-    print_graphics(stat_read('stats.txt'))
+    a, b, c = stat_read('stats.txt')
+    print_graphics(a, b, c)
