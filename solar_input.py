@@ -126,7 +126,7 @@ def stat_read(stat_filename):
     time_list = []
     mod_list = []
     dist_list = []
-    with open (stat_filename, 'r') as stat_file:
+    with open(stat_filename, 'r') as stat_file:
         for line in stat_file:
             time_list.append(float(line.split()[0]))
             mod_list.append(float(line.split()[1]))

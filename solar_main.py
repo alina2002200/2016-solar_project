@@ -137,6 +137,7 @@ def main():
     frame = tkinter.Frame(root)
     label_a = tkinter.Label(master=frame, text="I'm in Frame A")
     frame.pack(side=tkinter.BOTTOM)
+    open('stats.txt', 'w').close()
 
     start_button = tkinter.Button(frame, text="Start", command=start_execution, width=6)
     start_button.pack(side=tkinter.LEFT)
@@ -159,11 +160,11 @@ def main():
     displayed_time.set(str(physical_time) + " seconds gone")
     time_label = tkinter.Label(frame, textvariable=displayed_time, width=30)
     time_label.pack(side=tkinter.RIGHT)
-
+    statappend('stats.txt', planet, star, time)
     root.mainloop()
     print('Modelling finished!')
 
 
 if __name__ == "__main__":
     main()
-    print_graphics(stat_read(stats.txt))
+    print_graphics(stat_read('stats.txt'))
