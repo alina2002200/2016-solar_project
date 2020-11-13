@@ -128,9 +128,9 @@ def stat_read(stat_filename):
     dist_list = []
     with open (stat_filename, 'r') as stat_file:
         for line in stat_file:
-            time_list.append(float(line.split()[0])
-            mod_list.append(float(line.split()[1])
-            dist_list.append(float(line.split()[2])
+            time_list.append(float(line.split()[0]))
+            mod_list.append(float(line.split()[1]))
+            dist_list.append(float(line.split()[2]))
     return time_list, mod_list, dist_list
 
 if __name__ == "__main__":
