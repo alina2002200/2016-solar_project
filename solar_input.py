@@ -93,7 +93,7 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            print(out_file, "{0} {1} {2} {3} {4} {5} {6} {7}\n".format(obj.type.capitalize(),
+            print(out_file, "{0} {1} {2} {3} {4} {5} {6} {7} \n".format(obj.type.capitalize(),
                 obj.R, obj.color, obj.m, obj.x, obj.y, obj.Vx, obj.Vy))
 
 def statappend(stat_filename, planet, star, time):
@@ -107,8 +107,31 @@ def statappend(stat_filename, planet, star, time):
     **time** - значение времени в текущий момент
     '''
     with open (stat_filename, 'a') as stat_file:
-        stat_file.write("{0} {1} {2}\n".format(str(time), str((planet.vx**2 + planet.vy**2)**0.5),
+        stat_file.write("{0} {1} {2} \n".format(str(time), str((planet.vx**2 + planet.vy**2)**0.5),
             str(((star.x - planet.x)**2 + (star.y - planet.y)**2)**0.5)))
+
+def stat_read(stat_filename):
+    '''Считывает статистику из файла статистики для построения графиков.
+    
+    Параметры:
+    
+    **stat_filename** - имя файла статистики
+    
+    Возвращает:
+    
+    **time_list** - упорядоченный список значений времени
+    **mod_list** - упорядоченный список значений модуля скорости
+    **dist_list** - упорядоченный список значений расстояния
+    '''
+    time_list = []
+    mod_list = []
+    dist_list = []
+    with open (stat_filename, 'r') as stat_file:
+        for line in stat_file:
+            time_list.append(float(line.split()[0])
+            mod_list.append(float(line.split()[1])
+            dist_list.append(float(line.split()[2])
+    return time_list, mod_list, dist_list
 
 if __name__ == "__main__":
     print("This module is not for direct call!")
