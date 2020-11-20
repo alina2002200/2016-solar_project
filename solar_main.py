@@ -102,11 +102,11 @@ def print_graphics(list1, list2, list3):
     y1 = list1
     y2 = list2
     x = list3
-    plt.plot(x, y1)
-    plt.plot(x, y2)
-    plt.plot(y1, y2)
+    fig, axs = plt.subplots(1, 3, figsize=(12, 6))
+    axs[0].plot(x, y1)
+    axs[1].plot(x, y2)
+    axs[2].plot(y1, y2)
     plt.show()
-
 
 
 def save_file_dialog():
