@@ -103,9 +103,9 @@ def print_graphics(list1, list2, list3):
     y1 = list2
     y2 = list3
     fig, axs = plt.subplots(1, 3, figsize=(12, 6))
-    axs[0].plot(x, y1, label = 'Velocity from time')
-    axs[1].plot(x, y2, label = 'Distance from time')
-    axs[2].plot(y1, y2, label = 'Distance from velocity')
+    axs[0].plot(x, y1, label='Velocity from time')
+    axs[1].plot(x, y2, label='Distance from time')
+    axs[2].plot(y1, y2, label='Distance from velocity')
     for ax in axs:
         ax.legend()
     plt.show()
