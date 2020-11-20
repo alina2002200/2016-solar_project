@@ -96,6 +96,9 @@ def open_file_dialog():
 
 
 def print_graphics(list1, list2, list3):
+    '''
+    рисует графики скорости и растояния от времени, скорости от расстояния
+    '''
     y1 = list1
     y2 = list2
     x = list3
