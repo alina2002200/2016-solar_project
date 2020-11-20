@@ -7,6 +7,7 @@ from solar_vis import *
 from solar_model import *
 from solar_input import *
 from math import *
+import matplotlib.pyplot as plt
 
 perform_execution = False
 """Флаг цикличности выполнения расчёта"""
@@ -95,16 +96,14 @@ def open_file_dialog():
 
 
 def print_graphics(list1, list2, list3):
-    root = Tk()
-    canv = Canvas(root, width=1000, height=1000, bg="white")
-    canv.create_line(500, 1000, 500, 0, width=2, arrow=LAST)
-    canv.create_line(0, 500, 1000, 500, width=2, arrow=LAST)
-    for x in range(len(list1)):
-        canv.create_oval(x, list1[x], x + 1, list1[x] + 1, fill='black')
-        canv.create_oval(x, list2[x], x + 1, list2[x] + 1, fill='black')
-        canv.create_oval(x, list3[x], x + 1, list3[x] + 1, fill='black')
-    canv.pack()
-    root.mainloop()
+    y1 = list1
+    y2 = list2
+    x = list3
+    plt.plot(x, y1)
+    plt.plot(x, y2)
+    plt.plot(y1, y2)
+    plt.show()
+
 
 
 def save_file_dialog():
